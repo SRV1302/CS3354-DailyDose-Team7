@@ -13,13 +13,19 @@ public class UserSchedule {
 
     public static boolean scheduleEvent(int year, int month, int dayOfMonth, int hour, int minute) {
         LocalDateTime newEvent = LocalDateTime.of(year, month, dayOfMonth, hour, minute);
-        for (LocalDateTime existingEvent : userEvents) {
-            if (existingEvent.equals(newEvent)) {
-                return false;
-            }
+        //check if the arraylist contains an event at the same time that we are wanting to add a new event
+        if(UserEvents.contains(newEvent))
+        {
+            return false;
         }
+
+        //if not, then add the event and return true
+        userEvents.add(newEvent);
         return true;
     }
+
+    //the arraylist that holds the events
+    return new ArrayList<>(userEvents);
 
 
 
